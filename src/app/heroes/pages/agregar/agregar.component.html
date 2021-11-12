@@ -1,1 +1,66 @@
-<p>agregar works!</p>
+<h1>Nuevo heroe <small>{{hero.superhero}}</small> </h1>
+
+<div 
+    fxLayout="row"
+    fxLayoutGap="40px"
+    fxLayout.xs="column">
+
+    <div fxFlex="50" fxLayout="column">
+        <div 
+            fxLayout="row" 
+            fxLayout.xs="column"
+            fxLayoutGap="20px">
+
+            <mat-form-field fxFlex="100" fxLayout.xs="column">
+                <mat-label>Super Heroe</mat-label>
+                <input matInput type="text" required [(ngModel)]="hero.superhero">
+            </mat-form-field>
+    
+            <mat-form-field fxFlex="100">
+                <mat-label>Alter Ego</mat-label>
+                <input matInput type="text" required [(ngModel)]="hero.alter_ego">
+            </mat-form-field>
+
+        </div>
+        
+        <mat-form-field fxFlex="100">
+            <mat-label>Primera Aparición</mat-label>
+            <input matInput type="text" required [(ngModel)]="hero.first_appearance">
+        </mat-form-field>
+
+        <mat-form-field fxFlex="100">
+            <mat-label>Personajes</mat-label>
+            <input matInput type="text" required [(ngModel)]="hero.characters">
+        </mat-form-field>
+
+        <mat-form-field fxFlex="100">
+            <mat-label>Creador</mat-label>
+            <mat-select required [(ngModel)]="hero.publisher">
+                <mat-option *ngFor="let item of publishers" [value]="item.id">
+                    {{item.id}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="100">
+            <mat-label>Foto Url</mat-label>
+            <input matInput type="url" required [(ngModel)]="hero.alt_img">
+        </mat-form-field>
+
+        <br>
+
+        <button 
+            mat-raised-button 
+            color="primary"
+            (click)="saveHero()">
+            <mat-icon>save</mat-icon>
+            Guardar
+        </button>
+
+    </div>
+
+    <div fxFlex="50">
+        <img [src]="hero | imagen">
+    </div>
+    
+</div>
