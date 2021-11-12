@@ -14,6 +14,9 @@ const routes: Routes = [
     canLoad: [
       AuthGuard,
     ],
+    canActivate: [
+      AuthGuard,
+    ],
   },
   {
     path: '404',
